@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>A little universe called us — Alen + Dylan</title>
+<style>
+:root{--night:#07152d;--night2:#10284a;--ice:#eaf4ff;--blue:#b9d9ff;--silver:#dce8ff;--muted:#c5d5ee;--glass:rgba(9,22,46,.66)}
+*{box-sizing:border-box}
+html,body{margin:0;min-height:100%;font-family:Georgia,"Times New Roman",serif;color:var(--ice);background:radial-gradient(ellipse at 50% 120%,#244b77 0%,#10284a 34%,#07152d 75%);overflow-x:hidden}
+body:before,body:after{content:"";position:fixed;inset:0;pointer-events:none;z-index:0;background-image:radial-gradient(2px 2px at 12% 22%,#fff 55%,transparent 60%),radial-gradient(1px 1px at 75% 15%,#dbeaff 55%,transparent 60%),radial-gradient(2px 2px at 83% 62%,#fff 55%,transparent 60%),radial-gradient(1px 1px at 26% 78%,#fff 55%,transparent 60%),radial-gradient(1px 1px at 58% 43%,#c9e2ff 55%,transparent 60%),radial-gradient(2px 2px at 42% 11%,#fff 55%,transparent 60%);background-size:420px 380px;opacity:.8;animation:twinkle 5s ease-in-out infinite alternate}
+body:after{background-size:270px 310px;opacity:.45;animation-duration:8s;transform:translateY(-10px)}
+@keyframes twinkle{from{opacity:.25}to{opacity:.85}}
+button{font:inherit;cursor:pointer}
+.shell{position:relative;z-index:1;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px 14px 18px}
+.topline{width:min(900px,100%);display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:12px;color:#bcd4f4;font:12px/1.4 system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase}
+.brand{opacity:.85}.count{font-variant-numeric:tabular-nums}
+.progress{height:3px;background:#ffffff24;width:min(900px,100%);border-radius:99px;overflow:hidden;margin-bottom:16px}
+.bar{height:100%;width:8.333%;background:linear-gradient(90deg,#8bbfff,#fff);transition:width .4s ease}
+.card{width:min(900px,100%);min-height:min(620px,72vh);border:1px solid #c9e1ff45;border-radius:24px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:clamp(26px,6vw,72px);background:linear-gradient(145deg,rgba(13,35,66,.88),rgba(5,17,37,.88));box-shadow:0 24px 90px #0007,inset 0 0 60px #8ebfff0b}
+.card:before{content:"";position:absolute;width:250px;height:250px;border-radius:50%;right:-85px;top:-95px;background:radial-gradient(circle at 35% 35%,#fff 0%,#e6f2ff 12%,#b7d7ff 27%,#5d82ad 58%,#29496f 72%,transparent 73%);box-shadow:0 0 55px #8dc4ff32;opacity:.82}
+.card:after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(120deg,transparent 15%,#ffffff05 45%,transparent 75%)}
+.content{position:relative;z-index:1;max-width:650px;width:100%;animation:appear .45s ease}
+@keyframes appear{from{opacity:0;transform:translateY(9px)}to{opacity:1;transform:translateY(0)}}
+.kicker{font:12px system-ui,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:#a9ceff;margin-bottom:20px}
+h1,h2{font-weight:normal;line-height:1.12;margin:0 0 22px;text-wrap:balance}
+h1{font-size:clamp(42px,8vw,78px);font-style:italic}
+h2{font-size:clamp(34px,6vw,56px);font-style:italic}
+p{font-size:clamp(17px,2.2vw,21px);line-height:1.75;color:#e2ecfb;margin:0 0 16px}
+.small{font-size:16px;color:#bfd3ef}
+.quote{border-left:2px solid #9cc8ff;padding:12px 0 12px 18px;margin-top:26px;font-size:clamp(18px,2.4vw,23px);line-height:1.55;font-style:italic;color:#f2f7ff}
+.signature{margin-top:30px;color:#c3ddff;letter-spacing:.1em;font:12px system-ui,sans-serif;text-transform:uppercase}
+.pills{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px}
+.pill{border:1px solid #b9d9ff55;border-radius:99px;padding:8px 12px;color:#dceaff;font:13px system-ui,sans-serif;background:#c6e0ff0b}
+.controls{width:min(900px,100%);display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:16px}
+.nav{border:1px solid #c9e1ff66;background:#102849b8;color:#eef6ff;border-radius:999px;padding:12px 18px;transition:transform .2s,background .2s}
+.nav:hover{background:#254b78;transform:translateY(-1px)}.nav:disabled{opacity:.3;cursor:not-allowed;transform:none}
+.dots{display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+.dot{width:7px;height:7px;padding:0;border:0;border-radius:50%;background:#a9c8ee55}
+.dot.active{background:#fff;box-shadow:0 0 10px #a8d2ff}
+.footer{font:12px system-ui,sans-serif;color:#a9c4e6;margin-top:18px;text-align:center;letter-spacing:.05em}
+.heart{color:#d8eaff;font-size:22px;margin-top:18px}
+@media(max-width:600px){.shell{padding:14px 10px}.topline{font-size:10px}.card{min-height:66vh;border-radius:18px;padding:28px 23px}.card:before{width:180px;height:180px;right:-80px;top:-65px}.controls{gap:7px}.nav{padding:11px 13px;font-size:14px}.dots{max-width:100px}.quote{padding-left:13px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<main class="shell">
+  <div class="topline"><span class="brand">✦ A LITTLE UNIVERSE CALLED US</span><span class="count" id="count">01 / 12</span></div>
+  <div class="progress"><div class="bar" id="bar"></div></div>
+  <section class="card" aria-live="polite" aria-atomic="true">
+    <div class="content" id="content"></div>
+  </section>
+  <div class="controls">
+    <button class="nav" id="prev" type="button" aria-label="Diapositiva anterior">← Anterior</button>
+    <div class="dots" id="dots" aria-label="Ir a una diapositiva"></div>
+    <button class="nav" id="next" type="button">Siguiente →</button>
+  </div>
+  <div class="footer">ALEN + DYLAN · 29.08.26 — 29.10.26 · hecho con cariño ♡</div>
+</main>
+<script>
+const slides = [
+{tag:"01 · portada",title:"A little universe<br>called us",body:`<p>Dos meses desde que nuestro universo comenzó a escribirse.</p><div class="signature">ALEN + DYLAN<br><br>29.08.26 — 29.10.26</div><div class="heart">♡ ✦ ☾</div>`},
+{tag:"02 · el comienzo",title:"¿Quién diría que llegaríamos aquí?",body:`<p>Todo comenzó en Discord. Apenas hablábamos; éramos prácticamente desconocidos. Y sin darme cuenta, terminaste haciendo un espacio en mí que ni siquiera sabía que estaba esperando por ti.</p><div class="quote">Qué curioso que alguien que al principio era casi un desconocido terminara convirtiéndose en alguien tan especial para mí.</div>`},
+{tag:"03 · nuestra fecha",title:"29 de agosto de 2026",body:`<p>El comienzo oficial de nosotros.</p><p>Una fecha que siempre tendré presente, porque marca el inicio de algo que quiero cuidar, valorar y seguir construyendo contigo.</p><div class="quote">De todas las fechas que existen, hay una que siempre guardaré con especial cariño: el día en que comenzamos a ser nosotros.</div>`},
+{tag:"04 · tus detalles",title:"Las pequeñas cosas que amo de ti",body:`<p>Porque tú haces que lo simple se sienta especial.</p><div class="pills"><span class="pill">♡ Tu forma de hablar</span><span class="pill">♡ Tus ocurrencias</span><span class="pill">♡ Tu sentido del humor</span><span class="pill">♡ Tu manera de pensar</span><span class="pill">♡ Tus gustos</span><span class="pill">♡ Cómo me haces sonreír</span></div><div class="quote">No es una sola cosa: es la forma tan linda en que eres tú.</div>`},
+{tag:"05 · mi apodo favorito",title:"Mi Mon Soleil",body:`<p>Así te llamo, porque eres mi pequeña luz.</p><p>No porque tengas que iluminar todos mis días, sino porque tu presencia tiene una manera particular de hacer que algunos de ellos sean más bonitos.</p><div class="quote">Mi sol, mi calma, mi lugar bonito entre tantos días difíciles.</div>`},
+{tag:"06 · algo que quiero que sepas",title:"Lo que quiero que sepas",body:`<p>No te prometo una historia perfecta; quiero construir contigo una historia sincera, bonita y nuestra.</p><div class="pills"><span class="pill">♡ Que te escucharé</span><span class="pill">♡ Que te apoyaré</span><span class="pill">♡ Que aprenderé a amarte cada día</span><span class="pill">♡ Que cuidaremos lo que tenemos</span><span class="pill">♡ Que seremos un equipo</span></div><div class="quote">No quiero prometerte un final feliz; quiero caminar bonito contigo.</div>`},
+{tag:"07 · lo que viene",title:"Todo lo que todavía nos espera",body:`<p>Porque lo mejor aún está por venir…</p><div class="pills"><span class="pill">✦ Más aniversarios</span><span class="pill">✦ Más conversaciones infinitas</span><span class="pill">✦ Más videojuegos juntos</span><span class="pill">✦ Más risas y locuras</span><span class="pill">✦ Más recuerdos</span><span class="pill">✦ Momentos fuera de una pantalla</span></div><div class="quote">Our story is still being written.</div>`},
+{tag:"08 · si volviera al principio",title:"Siempre tú, mi Dilly",body:`<p>Eres mi persona favorita, mi lugar seguro, mi caos bonito, mi razón de sonreír.</p><div class="quote">Si pudiera volver al principio de nuestra historia, sabiendo todo lo que sé hoy, todavía querría conocerte.</div><p class="small">Y volvería a elegir la oportunidad de descubrir quién eres, poquito a poquito.</p>`},
+{tag:"09 · gracias",title:"Gracias por estos dos meses",body:`<p>Gracias por formar parte de mi vida, por permitirme conocerte y por darme la oportunidad de vivir esta historia contigo.</p><p>♡ Por cada conversación que nos ha acercado.<br>♡ Por cada momento que hemos compartido.<br>♡ Por todas esas pequeñas cosas que guardo con cariño.</p><div class="quote">No necesitas hacer algo extraordinario para tener un lugar especial en mí. A veces basta con que seas tú.</div>`},
+{tag:"10 · lo que siento",title:"Lo que siento por ti",body:`<p>Te amo. Y quiero demostrártelo con mis palabras, pero también con mis acciones, con mi paciencia, con mi sinceridad y con la forma en que elija cuidar nuestra relación.</p><div class="quote">Te amo, Dylan. Hoy, mañana y en cada pequeño capítulo que nos quede por escribir. ♡</div>`},
+{tag:"11 · seguimos escribiendo",title:"Hoy celebramos dos meses…",body:`<p>Pero también celebro la oportunidad de seguir conociéndote mañana, de descubrir nuevas cosas de ti y de mirar atrás algún día para recordar cuánto hemos crecido desde este primer capítulo.</p><p>No sé exactamente qué nos espera, pero sí sé que quiero seguir escribiendo esta historia contigo, paso a paso.</p><div class="quote">Sin apresurarnos, cuidando lo que tenemos y dándole valor a cada parte del camino.</div>`},
+{tag:"12 · para mi único amor",title:"Felices dos meses, mi único amor.",body:`<p>Ojalá pudiera hacerte comprender, aunque fuera por un instante, lo bonito que es para mí poder decir que eres mi novio.</p><p>Gracias por estos dos meses, mi niño bonito, mi Mon Soleil.</p><div class="quote">Te amo, Dylan. ♡</div><div class="signature">Con todo mi amor,<br>Tu Alen · 29.10.2026</div><div class="heart">☾ ✦ ♡ ✦ ☾</div>`}
+];
+let current=0;
+const content=document.getElementById('content'), count=document.getElementById('count'), bar=document.getElementById('bar'), prev=document.getElementById('prev'), next=document.getElementById('next'), dots=document.getElementById('dots');
+slides.forEach((s,i)=>{const b=document.createElement('button');b.className='dot';b.type='button';b.setAttribute('aria-label','Ir a la diapositiva '+(i+1));b.addEventListener('click',()=>show(i));dots.appendChild(b)});
+function show(i){current=Math.max(0,Math.min(slides.length-1,i));const s=slides[current];content.innerHTML=`<div class="kicker">${s.tag}</div><h${current===0?'1':'2'}>${s.title}</h${current===0?'1':'2'}>${s.body}`;count.textContent=String(current+1).padStart(2,'0')+' / '+String(slides.length).padStart(2,'0');bar.style.width=((current+1)/slides.length*100)+'%';prev.disabled=current===0;next.disabled=current===slides.length-1;[...dots.children].forEach((d,j)=>{d.classList.toggle('active',j===current);d.setAttribute('aria-current',j===current?'step':'false')});}
+prev.addEventListener('click',()=>show(current-1));next.addEventListener('click',()=>show(current+1));
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight')show(current+1);if(e.key==='ArrowLeft')show(current-1)});
+let touchX=null;document.querySelector('.card').addEventListener('touchstart',e=>{touchX=e.changedTouches[0].screenX},{passive:true});document.querySelector('.card').addEventListener('touchend',e=>{if(touchX===null)return;const dx=e.changedTouches[0].screenX-touchX;if(Math.abs(dx)>50)show(current+(dx<0?1:-1));touchX=null},{passive:true});
+show(0);
+</script>
+</body>
+</html>
